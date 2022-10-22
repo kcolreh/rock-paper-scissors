@@ -6,11 +6,11 @@
 // 4. Game is looped to play best of 5
 // 5. Game decides the overall winner based on points
 
-bestOf5();
+playBestOf5();
 
 
 //Function that allows you to play a best of 5 of the game and decides whos the overall winner
-function bestOf5() {
+function playBestOf5() {
 
     let round = 5;
     let userScore = 0;
@@ -26,6 +26,8 @@ function bestOf5() {
             userScore + 0, console.log('this ones a draw');
         } else if (decider === 'you win') {
             userScore++, console.log('you won this round!'), console.log(userScore);
+        } else {
+            return;
         }
     }
 
@@ -71,7 +73,9 @@ function userChoise() {
 
     let choise = prompt('Choose between Rock, Paper or Scissors!')
 
-    if (choise.toLowerCase() === 'scissors') {
+    if (choise === null){
+        return alert(`Don't wanna play?`);
+    } else if (choise.toLowerCase() === 'scissors') {
         return 'scissors';
     } else if (choise.toLowerCase() === 'rock') {
         return 'rock';
