@@ -6,13 +6,12 @@
 // 4. Game is looped to play best of 5
 // 5. Game decides the overall winner based on points
 
-playBestOf5();
+/*playBestOf5();
 
 
 //Function that allows you to play a best of 5 of the game and decides whos the overall winner
 function playBestOf5() {
 
-    let round = 5;
     let userScore = 0;
     let aiScore = 0;
 
@@ -38,7 +37,14 @@ function playBestOf5() {
     } else if (aiScore === userScore) {
         console.log('Noone wins, its a draw!');
     }
-}
+}*/
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', userChoise, () => {
+        playRound();
+      });
+    });
 
 //Function that allows you to play a single round and decides who won it
 function playRound() {
@@ -47,43 +53,39 @@ function playRound() {
     let user = userChoise();
 
     if (ai === user) {
-        return 'noone wins';
+        return console.log('noone wins');
 
     } else if (ai === 'rock' && user === 'paper') {
-        return 'you win';
+        return console.log('you win');
     } else if (ai === 'rock' && user === 'scissors') {
-        return 'ai wins';
+        return console.log('ai wins');
 
 
     } else if (ai === 'paper' && user === 'rock') {
-        return 'ai wins';
+        return console.log('ai wins');
     } else if (ai === 'paper' && user === 'scissors') {
-        return 'you win';
+        return console.log('you win');
 
 
     } else if (ai === 'scissors' && user === 'rock') {
-        return 'you win';
+        return console.log('you win');
     } else if (ai === 'scissors' && user === 'paper') {
-        return 'ai wins';
+        return console.log('ai wins');
     }
 }
 
 //function that lets user choose what to play
 function userChoise() {
 
-    let choise = prompt('Choose between Rock, Paper or Scissors!')
 
-    if (choise === null){
-        return alert(`Don't wanna play?`);
-    } else if (choise.toLowerCase() === 'scissors') {
-        return 'scissors';
-    } else if (choise.toLowerCase() === 'rock') {
-        return 'rock';
-    } else if (choise.toLowerCase() === 'paper') {
-        return 'paper';
-    } else {
-        alert('Try again!'), userChoise();
-    }
+    const userRock = document.querySelector('#rock')
+    userRock.onclick = () => 'rock';
+
+    const userPaper = document.querySelector('#paper')
+    userPaper.onclick = () => 'paper';
+    
+    const userScissors = document.querySelector('#scissors')
+    userScissors.onclick = () => 'scissors';
 
 }
 
