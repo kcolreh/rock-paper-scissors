@@ -4,16 +4,16 @@ buttons.forEach((button) => {
 });
 
 
-let verdict = document.querySelector('.win-lose-tie')
-let pcScore = document.querySelector('#aiScore')
-let humanScore = document.querySelector('#userScore')
+const verdict = document.querySelector('.win-lose-tie')
+const pcScore = document.querySelector('#aiScore')
+const humanScore = document.querySelector('#userScore')
 let userScore = 0;
 let aiScore = 0;
 
 function playRound(userChoise) {
 
-    let ai = computerChoise();
-    let user = userChoise.srcElement.id;
+    const ai = computerChoise();
+    const user = userChoise.srcElement.id;
 
 
 
@@ -21,41 +21,45 @@ function playRound(userChoise) {
         verdict.textContent = 'its a tie!';;
 
     } else if (ai === 'rock' && user === 'paper') {
-        verdict.textContent = 'you won the round', userScore++;
+        verdict.textContent = 'You won Paper beats Rock!', userScore++;
         humanScore.textContent = +humanScore.textContent + 1;
 
     } else if (ai === 'rock' && user === 'scissors') {
-        verdict.textContent = 'you lost the round', aiScore++;
+        verdict.textContent = 'You lost Rock beats Scissors!', aiScore++;
         pcScore.textContent = +pcScore.textContent + 1;
 
 
     } else if (ai === 'paper' && user === 'rock') {
-        verdict.textContent = 'you lost the round', aiScore++;
+        verdict.textContent = 'You lost Paper beats Rock!', aiScore++;
         pcScore.textContent = +pcScore.textContent + 1;
 
     } else if (ai === 'paper' && user === 'scissors') {
-        verdict.textContent = 'you won the round', userScore++;
+        verdict.textContent = 'You won Scissors beats Paper!', userScore++;
         humanScore.textContent = +humanScore.textContent + 1;
 
     } else if (ai === 'scissors' && user === 'rock') {
-        verdict.textContent = 'you won the round', userScore++;
+        verdict.textContent = 'You won Rock beats Scissors!', userScore++;
         humanScore.textContent = +humanScore.textContent + 1;
 
     } else if (ai === 'scissors' && user === 'paper') {
-        verdict.textContent = 'you lost the round', aiScore++;
+        verdict.textContent = 'You lose Scissors beats Paper!', aiScore++;
         pcScore.textContent = +pcScore.textContent + 1;
 
     }
 
-    if (userScore === 5) {
-        return alert('You won!'),
+    if (userScore === 3) {
+        return alert('Congratulations you won a best out of 5!'),
             pcScore.textContent = 0,
-            humanScore.textContent = 0;
+            humanScore.textContent = 0,
+            userScore = 0,
+            aiScore = 0;
 
-    } else if (aiScore === 5) {
-        return alert('You lost!'),
+    } else if (aiScore === 3) {
+        return alert('Unfortunetly you lost a best out of 5'),
             pcScore.textContent = 0,
-            humanScore.textContent = 0;
+            humanScore.textContent = 0, 
+            userScore = 0,
+            aiScore = 0;
     }
 }
 
