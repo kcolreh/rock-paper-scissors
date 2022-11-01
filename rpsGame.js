@@ -57,7 +57,7 @@ function playRound(userChoise) {
     } else if (aiScore === 3) {
         return alert('Unfortunetly you lost a best out of 5'),
             pcScore.textContent = 0,
-            humanScore.textContent = 0, 
+            humanScore.textContent = 0,
             userScore = 0,
             aiScore = 0;
     }
